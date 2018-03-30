@@ -63,12 +63,16 @@ class LabelDialog(QDialog):
             self.listWidget.clear()
 
             for item in self.origList:
-                if searchTerm.upper().strip() in item.upper().strip():
+                print(item)
+                comp = str(item)
+                searchTerm = str(searchTerm)
+                if searchTerm.upper().strip() in comp.upper().strip():
                     self.listWidget.addItem(item)
 
-        except AttributeError:
+        except AttributeError as e:
             # PyQt5: AttributeError: 'str' object has no attribute 'trimmed'
-            self.edit.setText(self.edit.text())
+            # self.edit.setText(self.edit.text())
+            print(e)
 
     def popUp(self, text='', move=True):
         self.edit.setText(text)
