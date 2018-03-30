@@ -63,7 +63,7 @@ class LabelDialog(QDialog):
             self.listWidget.clear()
 
             for item in self.origList:
-                if searchTerm.upper() in item.upper():
+                if searchTerm.upper().strip() in item.upper().strip():
                     self.listWidget.addItem(item)
 
         except AttributeError:
